@@ -59,7 +59,7 @@ class Custom_Logger:
 
 
 # Code referenced from https://gist.github.com/gyglim/1f8dfb1b5c82627ae3efcfbbadb9f514
-class TbLog(Logger):
+class TbLog(Custom_Logger):
     def __init__(self,
                  interval=50,
                  validation=200,
