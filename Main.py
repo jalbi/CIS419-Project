@@ -5,7 +5,7 @@
 from FinalRunfiles.model import *
 from FinalRunfiles.audio_data import Dataset
 from FinalRunfiles.training import *
-from FinalRunfiles.logging import *
+from FinalRunfiles.logging1 import *
 import IPython.display as ipd
 
 # initialize cuda option

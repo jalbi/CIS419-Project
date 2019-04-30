@@ -2,7 +2,7 @@ import torch.optim as optim
 import torch.utils.data
 import time
 import torch.nn.functional as torch_fun
-from FinalRunfiles.logging import Logger
+from FinalRunfiles.logging1 import Logger
 from FinalRunfiles.modules import *
 
 class Trainer:
