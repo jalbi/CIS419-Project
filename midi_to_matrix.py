@@ -80,9 +80,7 @@ def noteStateMatrixToMidi(statematrix, name):
         for note in onNotes:
             track.append(midi.NoteOnEvent(tick=(time-lastcmdtime)*tickscale, velocity=40, pitch=note+lowerBound))
             lastcmdtime = time
-            
         prevstate = state
-    
     eot = midi.EndOfTrackEvent(tick=1)
     track.append(eot)
     midi.write_midifile("{}.mid".format(name), pattern)
