@@ -9,7 +9,7 @@ except ImportError:
     from io import BytesIO  # Python 3.x
 
 
-class Logger:
+class Custom_Logger:
     def __init__(self,
                  log_interval=50,
                  validation_interval=200,
@@ -59,7 +59,7 @@ class Logger:
 
 
 # Code referenced from https://gist.github.com/gyglim/1f8dfb1b5c82627ae3efcfbbadb9f514
-class TbLog(Logger):
+class TbLog(Custom_Logger):
     def __init__(self,
                  interval=50,
                  validation=200,
