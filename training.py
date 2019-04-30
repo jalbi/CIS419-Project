@@ -2,7 +2,7 @@ import torch.optim as optim
 import torch.utils.data
 import time
 import torch.nn.functional as torch_fun
-from FinalRunfiles.logging import Logger
+from FinalRunfiles.logging import Custom_Logger
 from FinalRunfiles.modules import *
 
 class Trainer:
@@ -11,7 +11,7 @@ class Trainer:
                  dataset,
                  optimizer=optim.Adam,
                  lr=0.001,
-                 logger=Logger(),
+                 logger=Custom_Logger(),
                  snapshot_path=None,
                  snapshot_name='snapshot',
                  snapshot_interval=1000,
