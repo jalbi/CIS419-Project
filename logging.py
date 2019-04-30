@@ -9,7 +9,7 @@ except ImportError:
     from io import BytesIO  # Python 3.x
 
 
-class Logger:
+class Custom_Logger:
     def __init__(self,
                  log_interval=50,
                  validation_interval=200,
