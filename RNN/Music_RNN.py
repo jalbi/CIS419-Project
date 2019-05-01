@@ -9,9 +9,9 @@ import os
 import statistics
 import matplotlib.pyplot as plt
 
-file = unidecode.unidecode(open('train.txt').read())
-v_file = unidecode.unidecode(open('val.txt').read())
-vl = len(vf)
+file = unidecode.unidecode(open('train_midi.txt').read())
+v_file = unidecode.unidecode(open('val_midi.txt').read())
+vl = len(v_file)
 file_len = len(file)
 all_chars = string.printable
 
@@ -98,7 +98,7 @@ class Char_RNN(nn.Module):
 
     def init_hidden(self):
         if (self.model == 'lstm'):
-            return (Variable(torch.zeros(self.n_layers, 1, self.hidden_size)), return Variable(torch.zeros(self.n_layers, 1, self.hidden_size)))
+            return (Variable(torch.zeros(self.n_layers, 1, self.hidden_size)), Variable(torch.zeros(self.n_layers, 1, self.hidden_size)))
         return Variable(torch.zeros(self.n_layers, 1, self.hidden_size))
 
 
@@ -125,7 +125,7 @@ hidden_size = 100
 n_layers = 1
 lr = 0.0005
 
-decoder = Char_RNN(n_characters, hidden_size, n_characters, n_layers)
+decoder = Char_RNN(len(string.printable), hidden_size, len(string.printable), n_layers, 'gru')
 decoder_optimizer = torch.optim.Adam(decoder.parameters(), lr=lr)
 criterion = nn.CrossEntropyLoss()
 all_losses = []
@@ -159,7 +159,7 @@ plt.plot(per_val[10:], 'b-', label = 'val')
 plt.plot(per_train[10:], 'y-', label ='train')
 
 
-decoder.save(torch.save(os.getcwd()+"/music_gen"))
+#decoder.save(torch.save(os.getcwd()+"/music_gen"))
 
 
 #decoder = Char_RNN(n_characters, hidden_size, n_characters, n_layers)
